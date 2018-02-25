@@ -22,6 +22,10 @@ def in_re(s, pats):
   Namely, 'test01' and 'test02' are counted as targets.
   when check_str_end=True, targets = ['test'] matches only the layer whose name is 'test'. In this case,
   'test01' and 'test02' are excluded from the targets.
+  
+  Use case:
+  set_trainable(model, True) # set 'trainable=True' to all layers in 'model'. 
+  frozen_layers = set_trainable(model, False, targets=['conv.*']) # set 'trainable=False' to all layers whose name starts with 'conv'.
 '''
 def set_trainable(model,trainable, targets=None, check_str_end = True):
     is_target = True    
